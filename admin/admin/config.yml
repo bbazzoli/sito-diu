@@ -1,0 +1,46 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "immagini"
+public_folder: "immagini"
+
+collections:
+  - name: "articoli"
+    label: "Articoli"
+    folder: "root"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tipo di contenuto", name: "type", widget: "hidden", default: "article"}
+      - {label: "Titolo", name: "title", widget: "string"}
+      - {label: "Data di pubblicazione", name: "date", widget: "datetime"}
+      - {label: "Fonte", name: "source", widget: "string"}
+      - {label: "Riassunto", name: "description", widget: "text"}
+      - {label: "Contenuto", name: "body", widget: "markdown"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "article"}
+      
+  - name: "podcast"
+    label: "Podcast"
+    folder: "root"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tipo di contenuto", name: "type", widget: "hidden", default: "podcast"}
+      - {label: "Titolo", name: "title", widget: "string"}
+      - {label: "Durata", name: "duration", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Descrizione", name: "description", widget: "text"}
+      - {label: "File Audio", name: "audio", widget: "file"}
+      
+  - name: "interviste"
+    label: "Interviste"
+    folder: "root"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tipo di contenuto", name: "type", widget: "hidden", default: "interview"}
+      - {label: "Nome Intervistato", name: "name", widget: "string"}
+      - {label: "Ruolo", name: "role", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Estratto", name: "excerpt", widget: "text"}
